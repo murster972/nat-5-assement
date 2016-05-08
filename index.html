@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+	<head>
+		<title>
+			Average Tempratures
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="stylesheets/mainStyle.css">
+		<script src = "scripts/jquery-1.11.1.js" type="text/javascript"></script>
+		<script src = "scripts/averageTemp.js" type="text/javascript"></script>
+	</head>
+	<body id = "bodyPaddFix">
+		<div id  = "windowMainContainerBack">
+			<div id = "windowMainContainerFore">
+				<div id = "titleBarMain">
+					<p id = "titleBarInfo">
+						<b>Average Tempratues</b>
+					</p>
+				</div>
+				<div id = "mainContentMain">
+					<div id = "leftContainerMain">
+						<div id = "locationSelectContainerMain">
+							<select id = "locationSelect">
+								<option value = "Glasgow">
+									Glasgow
+								</option>
+								<option value = "Edinburgh">
+									Edinburgh
+								</option>
+								<option value = "Aberdeen">
+									Aberdeen
+								</option>
+								<option value = "Dundee">
+									Dundee
+								</option>
+								<option value = "Perth">
+									Perth
+								</option>
+							</select>
+						</div>
+						<div id = "monthSelectContainerMain">
+								<input class = "monthCb" id = "month1" type = "checkbox" name = "jan" value = "January"><span class = "monthCbvalues">January</span><br>
+								<input class = "monthCb" id = "month2" type = "checkbox" name = "feb" value = "February"><span class = "monthCbvalues">February</span><br>
+								<input class = "monthCb" id = "month3" type = "checkbox" name = "mar" value = "March"><span class = "monthCbvalues">March</span><br>
+								<input class = "monthCb" id = "month4" type = "checkbox" name = "apr" value = "April"><span class = "monthCbvalues">April</span><br>
+								<input class = "monthCb" id = "month5" type = "checkbox" name = "may" value = "May"><span class = "monthCbvalues">May</span><br>
+								<input class = "monthCb" id = "month6" type = "checkbox" name = "jun" value = "June"><span class = "monthCbvalues">June</span><br>
+								<input class = "monthCb" id = "month7" type = "checkbox" name = "jul" value = "July"><span class = "monthCbvalues">July</span><br>
+								<input class = "monthCb" id = "month8" type = "checkbox" name = "aug" value = "August"><span class = "monthCbvalues">August</span><br>
+								<input class = "monthCb" id = "month9" type = "checkbox" name = "sep" value = "September"><span class = "monthCbvalues">September</span><br>
+								<input class = "monthCb" id = "month10" type = "checkbox" name = "oct" value = "October"><span class = "monthCbvalues">October</span><br>
+								<input class = "monthCb" id = "month11" type = "checkbox" name = "nov" value = "November"><span class = "monthCbvalues">November</span><br>
+								<input class = "monthCb" id = "month12" type = "checkbox" name = "dec" value = "December"><span class = "monthCbvalues">December</span><br>
+						</div>
+					</div>
+					<div id = "rightContainerMain">
+						<div id = "tempInfoContainerMain">
+							<p id = "avrgTempInfoTxt">
+								Average temprature in centigrade for selected months.
+							</p>
+							<div id = "avrgTempDisplayContainer">
+								<p id = "avrgTempDisplay">
+									Average Temprature
+								</p>
+							</div>
+						</div>
+						<div id = "tempButtonContainerMain">
+							<ul>
+								<li>
+									<div id = "tempButnStyle1" onclick = "GetMonths(true)">
+										<p class = "tempButnTxt">
+											Enter Tempratures
+										</p>
+									</div>
+									<div id = "tempButnStyle2" onclick = "ShowAvrgTemp()">
+										<p class = "tempButnTxt" id = "tempButnTxt2">
+											Show Average Tempratures for Selected Months
+										</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "tempEnterContainer" id = "tempEnterTransLayer"></div>
+		<div class = "tempEnterContainer" id = "enterTempContainerMain">
+			<div id = "enterTempContainer">
+				<div id = "tempEnterClose" onclick = "HideShowTempInput('none')">
+					<p id = "tempEnterCloseTxt">
+						<b>X</b>
+					</p>
+				</div>
+				<div id = "monthContainerMain">
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt1">January:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt2">February:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt3">March:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt4">April:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt5">May:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt6">June:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt7">July:<br></p> 
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt8">August:<br></p> 
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt9">September:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt10">October:<br></p>
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt11">November:<br></p> 
+					<p class = "monthsTextHeight MonthsEnter" id = "MonthsInputTxt12">December:<br></p>
+				</div>
+				<div id = "enterTempInputContainerMain">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter1" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter2" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter3" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter4" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter5" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter6" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter7" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter8" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter9" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter10" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter11" type = "text">
+					<input class = "inputTempStyle MonthsEnter" id = "MonthsEnter12" type = "text">
+					<div id = "submitTempButton" onclick = "GetAvrgTemps()">
+						<p id = "submitTempButtonTxt">
+							Submit
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
